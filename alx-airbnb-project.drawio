@@ -1,0 +1,340 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36" version="27.1.6">
+  <diagram name="Page-1" id="ROSSpVBe134HuzA2AlAc">
+    <mxGraphModel dx="3422" dy="473" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bdppFfS9T9ufFa10sfc3-4" value="graph TD" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="-2080" y="120" width="320" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-5" value="    %% 1.0 User Entry &amp; Authentication Flow" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-4">
+          <mxGeometry y="26" width="320" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-6" value="    A[Start: User Visits App] --&gt; B{New or Existing User?};" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-4">
+          <mxGeometry y="52" width="320" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-7" value="    B --&gt;|New User| C[Navigate to Registration];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-4">
+          <mxGeometry y="78" width="320" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-8" value="    B --&gt;|Existing User| D[Navigate to Login];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-4">
+          <mxGeometry y="104" width="320" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-9" value="    subgraph 1.1 User Registration" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="-1880" y="120" width="300" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-10" value="        C --&gt; C1[Input: Name, Email, Password];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-9">
+          <mxGeometry y="26" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-11" value="        C1 --&gt; C2[Validate Input Data];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-9">
+          <mxGeometry y="52" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-12" value="        C2 --&gt; C3{Is Data Valid?};" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-9">
+          <mxGeometry y="78" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-13" value="        C3 --&gt;|No| C4[Return Validation Error];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-9">
+          <mxGeometry y="104" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-14" value="        C3 --&gt;|Yes| C5[Hash Password using bcrypt];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-9">
+          <mxGeometry y="130" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-15" value="        C5 --&gt; C6[Create User Record in Database];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-9">
+          <mxGeometry y="156" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-16" value="        C6 --&gt; C7[Send Verification Email];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-9">
+          <mxGeometry y="182" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-17" value="        C7 --&gt; E[User Authenticated / Awaiting Verification];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-9">
+          <mxGeometry y="208" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-18" value="    end" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-9">
+          <mxGeometry y="234" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-19" value="    subgraph 1.2 User Login" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="-1620" y="120" width="310" height="208" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-20" value="        D --&gt; D1[Input: Email, Password];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-19">
+          <mxGeometry y="26" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-21" value="        D1 --&gt; D2[Find User in Database &amp; Verify Password];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-19">
+          <mxGeometry y="52" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-22" value="        D2 --&gt; D3{Credentials Correct?};" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-19">
+          <mxGeometry y="78" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-23" value="        D3 --&gt;|No| D4[Return Authentication Error];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-19">
+          <mxGeometry y="104" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-24" value="        D3 --&gt;|Yes| D5[Generate JWT Access Token];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-19">
+          <mxGeometry y="130" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-25" value="        D5 --&gt; E;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-19">
+          <mxGeometry y="156" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-26" value="    end" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-19">
+          <mxGeometry y="182" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-27" value="    subgraph &quot;1.3 Forgot Password&quot;" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="-1400" y="120" width="250" height="156" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-28" value="        D --&gt; F[Forgot Password?];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-27">
+          <mxGeometry y="26" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-29" value="        F --&gt; F1[Input: Email];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-27">
+          <mxGeometry y="52" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-30" value="        F1 --&gt; F2[Generate Secure Reset Token];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-27">
+          <mxGeometry y="78" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-31" value="        F2 --&gt; F3[Send Password Reset Email];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-27">
+          <mxGeometry y="104" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-32" value="    end" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-27">
+          <mxGeometry y="130" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-33" value="    E --&gt; G{User Action};" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="-1140" y="120" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-34" value="    %% 2.0 Post-Authentication User Flow" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="-940" y="120" width="260" height="182" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-35" value="    subgraph &quot;User Actions&quot;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-34">
+          <mxGeometry y="26" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-36" value="        G --&gt; H{User Role?};" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-34">
+          <mxGeometry y="52" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-37" value="        H --&gt;|Guest| I[Access Guest Functionalities];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-34">
+          <mxGeometry y="78" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-38" value="        H --&gt;|Host| J[Access Host Functionalities];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-34">
+          <mxGeometry y="104" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-39" value="        H --&gt;|Both| K[Access Profile Management];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-34">
+          <mxGeometry y="130" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-40" value="    end" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-34">
+          <mxGeometry y="156" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-41" value="    subgraph 2.1 Profile Management" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="-640" y="120" width="370" height="156" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-42" value="        K --&gt; K1{Action?};" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-41">
+          <mxGeometry y="26" width="370" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-43" value="        K1 --&gt;|View/Update Profile| K2[API: GET/PUT User Profile];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-41">
+          <mxGeometry y="52" width="370" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-44" value="        K1 --&gt;|Upload Picture| K3[API: POST Profile Picture];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-41">
+          <mxGeometry y="78" width="370" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-45" value="        K1 --&gt;|Change Password| K4[API: PUT New Secure Password];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-41">
+          <mxGeometry y="104" width="370" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-46" value="    end" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-41">
+          <mxGeometry y="130" width="370" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-47" value="    I --&gt; L(Go to 3.0 Search &amp; Booking Flow);" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="-370" y="120" width="280" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-48" value="    J --&gt; M(Go to 4.0 Property Management Flow);" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-47">
+          <mxGeometry y="26" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-49" value="    %% 3.0 Guest: Search &amp; Booking Flow" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="-60" y="120" width="380" height="234" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-50" value="    subgraph &quot;Guest Journey&quot;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-49">
+          <mxGeometry y="26" width="380" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-51" value="        L[Start: Guest on Platform] --&gt; L1[Search API];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-49">
+          <mxGeometry y="52" width="380" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-52" value="        L1 --&gt; L2[Input: Location, Dates, Filters (Price, Amenities, etc.)];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-49">
+          <mxGeometry y="78" width="380" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-53" value="        L2 --&gt; L3[Query Database for Available Properties];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-49">
+          <mxGeometry y="104" width="380" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-54" value="        L3 --&gt; L4[Display Search Results];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-49">
+          <mxGeometry y="130" width="380" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-55" value="        L4 --&gt; L5[Guest Selects a Property];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-49">
+          <mxGeometry y="156" width="380" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-56" value="        L5 --&gt; L6[API: Fetch Full Property Details, Reviews, and Host Info];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-49">
+          <mxGeometry y="182" width="380" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-57" value="        L6 --&gt; L7[Guest Clicks &#39;Book&#39;];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-49">
+          <mxGeometry y="208" width="380" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-58" value="        L7 --&gt; B1[Input: Property ID, Check-in/out Dates];" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="120" width="340" height="156" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-59" value="        B1 --&gt; B2{Check Property Availability Calendar};" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-58">
+          <mxGeometry y="26" width="340" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-60" value="        B2 --&gt;|Not Available| B3[Show Error: Dates Not Available];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-58">
+          <mxGeometry y="52" width="340" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-61" value="        B2 --&gt;|Available| B4[Calculate Total Price (Rate * Nights)];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-58">
+          <mxGeometry y="78" width="340" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-62" value="        B4 --&gt; P1(Go to 5.0 Payment &amp; Booking Confirmation);" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-58">
+          <mxGeometry y="104" width="340" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-63" value="    end" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-58">
+          <mxGeometry y="130" width="340" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-64" value="    %% 4.0 Host: Property Management Flow" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="590" y="120" width="270" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-65" value="    subgraph &quot;Host Journey&quot;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-64">
+          <mxGeometry y="26" width="270" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-66" value="        M[Start: Host Logged In] --&gt; M1{Action?};" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-64">
+          <mxGeometry y="52" width="270" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-67" value="        M1 --&gt;|Create New Listing| M2;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-64">
+          <mxGeometry y="78" width="270" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-68" value="        M1 --&gt;|Manage Existing Listings| M3;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-64">
+          <mxGeometry y="104" width="270" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-69" value="        subgraph 4.1 Create Listing" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="900" y="120" width="440" height="182" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-70" value="            M2 --&gt; M2_1[Input: Title, Description, Price, Location, Guests, Amenities, etc.];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-69">
+          <mxGeometry y="26" width="440" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-71" value="            M2_1 --&gt; M2_2[Upload Multiple Images];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-69">
+          <mxGeometry y="52" width="440" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-72" value="            M2_2 --&gt; M2_3[API: Create Property Record in Database];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-69">
+          <mxGeometry y="78" width="440" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-73" value="            M2_3 --&gt; M2_4[Link Amenities to Property];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-69">
+          <mxGeometry y="104" width="440" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-74" value="            M2_4 --&gt; M_End[Listing Created];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-69">
+          <mxGeometry y="130" width="440" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-75" value="        end" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-69">
+          <mxGeometry y="156" width="440" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-76" value="        subgraph 4.2 Manage Listings" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="120" width="390" height="182" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-77" value="            M3 --&gt; M3_1[API: Fetch All Listings for Host];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-76">
+          <mxGeometry y="26" width="390" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-78" value="            M3_1 --&gt; M3_2{Select Action};" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-76">
+          <mxGeometry y="52" width="390" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-79" value="            M3_2 --&gt;|Update Listing| M3_3[API: PUT Updated Property Details];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-76">
+          <mxGeometry y="78" width="390" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-80" value="            M3_2 --&gt;|Delete Listing| M3_4[API: DELETE Property];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-76">
+          <mxGeometry y="104" width="390" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-81" value="        end" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-76">
+          <mxGeometry y="130" width="390" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-82" value="    end" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-76">
+          <mxGeometry y="156" width="390" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-83" value="    %% 5.0 Payment &amp; Booking Confirmation Flow" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="1390" y="120" width="470" height="234" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-84" value="    subgraph &quot;Booking &amp; Payment Core&quot;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-83">
+          <mxGeometry y="26" width="470" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-85" value="        P1[Start: Initiate Booking] --&gt; P2[Integrate with Payment Gateway (Stripe/PayPal)];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-83">
+          <mxGeometry y="52" width="470" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-86" value="        P2 --&gt; P3[Process Guest Payment];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-83">
+          <mxGeometry y="78" width="470" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-87" value="        P3 --&gt; P4{Payment Successful?};" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-83">
+          <mxGeometry y="104" width="470" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-88" value="        P4 --&gt;|No| P5[Handle Failed Payment &amp; Return Error];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-83">
+          <mxGeometry y="130" width="470" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-89" value="        P4 --&gt;|Yes| P6[Record Transaction Details];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-83">
+          <mxGeometry y="156" width="470" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-90" value="        P6 --&gt; P7[API: Create Booking Record (Status: &#39;Pending&#39;)];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-83">
+          <mxGeometry y="182" width="470" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-91" value="        P7 --&gt; P8[Send &#39;New Booking Request&#39; Notification to Host];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-83">
+          <mxGeometry y="208" width="470" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-92" value="        P8 --&gt; H1[Host Views Pending Request];" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="1730" y="120" width="270" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-93" value="        H1 --&gt; H2{Host Action?};" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-92">
+          <mxGeometry y="26" width="270" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-94" value="        H2 --&gt;|Accept| H3;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-92">
+          <mxGeometry y="52" width="270" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-95" value="        H2 --&gt;|Decline| H4;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-92">
+          <mxGeometry y="78" width="270" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-96" value="    end" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-92">
+          <mxGeometry y="104" width="270" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-97" value="    subgraph &quot;Acceptance Path&quot;" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="2040" y="120" width="320" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-98" value="        H3 --&gt; H3_1[Update Booking Status to &#39;Confirmed&#39;];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-97">
+          <mxGeometry y="26" width="320" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-99" value="        H3_1 --&gt; H3_2[Notify Guest of Confirmation];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-97">
+          <mxGeometry y="52" width="320" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-100" value="        H3_2 --&gt; H3_3[Update Property&#39;s Availability Calendar];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-97">
+          <mxGeometry y="78" width="320" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-101" value="    end" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-97">
+          <mxGeometry y="104" width="320" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-102" value="    subgraph &quot;Declination/Cancellation Path&quot;" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="2280" y="120" width="350" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-103" value="        H4 --&gt; H4_1[Update Booking Status to &#39;Declined&#39;];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-102">
+          <mxGeometry y="26" width="350" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-104" value="        H4_1 --&gt; H4_2[Notify Guest];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-102">
+          <mxGeometry y="52" width="350" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-105" value="        H4_2 --&gt; H4_3[API: Process Refund via Payment Gateway];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-102">
+          <mxGeometry y="78" width="350" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-106" value="    end" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-102">
+          <mxGeometry y="104" width="350" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-107" value="    subgraph &quot;Post-Stay Review&quot;" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="2590" y="120" width="350" height="182" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-108" value="      H3_3 --&gt; R1[System Checks if Stay is Completed];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-107">
+          <mxGeometry y="26" width="350" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-109" value="      R1 --&gt; R2{Can Guest Leave Review?};" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-107">
+          <mxGeometry y="52" width="350" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-110" value="      R2 --&gt;|Yes| R3[API: Guest Submits Review &amp; Rating];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-107">
+          <mxGeometry y="78" width="350" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-111" value="      R3 --&gt; R4[Store Review in Database];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-107">
+          <mxGeometry y="104" width="350" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-112" value="      R4 --&gt; R5[Recalculate &amp; Update Property&#39;s Average Rating];" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-107">
+          <mxGeometry y="130" width="350" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bdppFfS9T9ufFa10sfc3-113" value="    end" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="bdppFfS9T9ufFa10sfc3-107">
+          <mxGeometry y="156" width="350" height="26" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
